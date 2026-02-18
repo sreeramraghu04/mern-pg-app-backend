@@ -1,14 +1,14 @@
 import { useSearchParams, Link } from "react-router-dom";
 import { CheckCircle } from "lucide-react";
 
-const PaymentSuccess = () => {
+const Payment = () => {
   const [searchParams] = useSearchParams();
   const referenceId = searchParams.get("reference");
 
   return (
     <div className="min-h-screen p-8 bg-blue-100">
       <h1 className="text-3xl font-bold text-center mb-8">
-        Payment Successful Page
+        Payment Page
       </h1>
       <div className="flex items-center justify-center">
         <div className="bg-green-100 p-10 rounded-xl shadow-md max-w-md w-full text-center">
@@ -42,4 +42,4 @@ const PaymentSuccess = () => {
   );
 };
 
-export default PaymentSuccess;
+export default Payment;
