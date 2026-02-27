@@ -88,6 +88,7 @@ export const paymentVerification = async (req, res) => {
     }
     res.status(200).json({
       success: true,
+      message: "Payment verified successfully",
     });
     /* console.log(req.body); */
   } catch (error) {
