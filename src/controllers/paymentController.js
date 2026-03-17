@@ -54,8 +54,15 @@ export const getKey = async (req, res) => {
 //! paymentVerification controller
 export const paymentVerification = async (req, res) => {
   try {
-  //! to run frontend and backend at a time
+    //! to run frontend and backend at a time
     const CLIENT_URL = process.env.CLIENT_URL;
+    if (!CLIENT_URL) {
+      return res.status(500).json({
+        success: false,
+        message: "CLIENT_URL not defined",
+      });
+    }
+
     //* destruscture payment details from req.body
     const { razorpay_payment_id, razorpay_order_id, razorpay_signature } =
       req.body;
@@ -76,23 +83,15 @@ export const paymentVerification = async (req, res) => {
     console.log("razorpay signature:", razorpay_signature);
     console.log("expected signature:", expectedSignature);
     //* compare signatures
-    if (expectedSignature === razorpay_signature) {
-      // payment is verified
-      return res.redirect(
-        `${CLIENT_URL}/payment-success?reference=${razorpay_payment_id}`,
-      );
-    } else {
-      // when payment verification failed
-      res.status(400).json({
+    if (expectedSignature !== razorpay_signature) {
+      return res.status(400).json({
         success: false,
         message: "Invalid payment signature",
       });
     }
-    res.status(200).json({
-      success: true,
-      message: "Payment verified successfully",
-    });
-    /* console.log(req.body); */
+    return res.redirect(
+      `${CLIENT_URL}/payment-success?reference=${razorpay_payment_id}`,
+    );
   } catch (error) {
     console.log(error);
     res.status(500).json({
