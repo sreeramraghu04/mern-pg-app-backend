@@ -54,6 +54,8 @@ export const getKey = async (req, res) => {
 //! paymentVerification controller
 export const paymentVerification = async (req, res) => {
   try {
+    //! for frontend and backend works smooth
+    const CLIENT_URL = process.env.CLIENT_URL;
     //* destruscture payment details from req.body
     const { razorpay_payment_id, razorpay_order_id, razorpay_signature } =
       req.body;
@@ -77,7 +79,7 @@ export const paymentVerification = async (req, res) => {
     if (expectedSignature === razorpay_signature) {
       // payment is verified
       return res.redirect(
-        `http://localhost:5173/payment-success?reference=${razorpay_payment_id}`,
+        `${CLIENT_URL}/payment-success?reference=${razorpay_payment_id}`,
       );
     } else {
       // when payment verification failed
