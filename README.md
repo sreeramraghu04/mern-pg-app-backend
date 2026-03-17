@@ -67,6 +67,10 @@ A full-stack **Payment Gateway project** built using the **MERN stack**, integra
 
 - ![alt text](pg-paymentsuccessful.png)
 
+### Payment Final Page
+
+- ![alt text](pg-paymentfinalpage.png)
+
 ---
 
 ## 📌 Learning Outcome
