@@ -1,7 +1,7 @@
 {
-  "name": "payment-gateway",
+  "name": "payment-gateway-app",
   "version": "1.0.0",
-  "description": "ecommerce payment method",
+  "description": "payment gateway web app",
   "license": "ISC",
   "author": "ram",
   "type": "module",
@@ -17,8 +17,6 @@
     "crypto": "^1.0.1",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "lucide-react": "^0.563.0",
-    "mongoose": "^9.1.5",
     "morgan": "^1.10.1",
     "nodemon": "^3.1.11",
     "razorpay": "^2.9.6"
