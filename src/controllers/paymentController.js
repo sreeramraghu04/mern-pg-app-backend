@@ -54,7 +54,7 @@ export const getKey = async (req, res) => {
 //! paymentVerification controller
 export const paymentVerification = async (req, res) => {
   try {
-    //! for frontend and backend works smooth
+  //! to run frontend and backend at a time
     const CLIENT_URL = process.env.CLIENT_URL;
     //* destruscture payment details from req.body
     const { razorpay_payment_id, razorpay_order_id, razorpay_signature } =
